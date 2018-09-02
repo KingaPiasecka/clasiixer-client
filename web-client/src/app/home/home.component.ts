@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   searchForm: FormGroup;
-
+  submitted: boolean = false;
   constructor(private tokenStorage: TokenStorage,
               private authorizationService : AuthorizationService,
               private formBuilder: FormBuilder,
