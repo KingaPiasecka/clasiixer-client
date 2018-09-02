@@ -10,30 +10,21 @@ const request = require('request');
 app.use(cors());
 cors({credentials: true, origin: true});
 
-
-const allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'example.com');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
-};
-app.use(allowCrossDomain);
+});
 
 
 app.get('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
-  processRewues(req);
-  res.setHeader('Content-Type', 'application/json');
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
   next();
 });
 
 app.post('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
-  processRewues(req);
-  res.setHeader('Content-Type', 'application/json');
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
   next();
 });
