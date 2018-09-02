@@ -14,3 +14,6 @@ app.get('*', function(req,res) {
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
+
+var proxy = require('express-http-proxy');
+app.use('/proxy', proxy('clasiixer-server.herokuapp.com'));

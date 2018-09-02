@@ -18,9 +18,7 @@ export class Interceptor implements HttpInterceptor {
     let baseUrl = 'clasiixer-server.herokuapp.com';
     let authReq = req;
     if (this.tokenStorage.getToken() != null) {
-      authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}, url: baseUrl + 'sdsdsd'}, );
-    } else {
-      authReq = req.clone({ url: baseUrl + 'sdsdsd'}, );
+      authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}}, );
     }
     return next.handle(authReq);
   }
