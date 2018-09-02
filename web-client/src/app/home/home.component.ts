@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  get f() {
+    return this.searchForm.controls;
+  }
+
   logOut() {
     this.authorizationService.logout();
   }
