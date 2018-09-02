@@ -24,13 +24,13 @@ app.all('/*', function(req, res, next) {
 });
 
 
-app.get('/api/login',cors(),  function(req, res) {
+app.get('/api/*',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login'});
   res.send('Req OK');
   next();
 });
 
-app.post('/api/login',cors(),  function(req, res) {
+app.post('/api/*',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login'});
   res.send('Req OK');
   console.log("post ok");
