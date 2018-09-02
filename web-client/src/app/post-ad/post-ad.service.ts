@@ -13,9 +13,6 @@ export class PostAdService {
 
   public postAd(file: File, postAdForm: any): Observable<TextResponse> {
     const form: FormData = new FormData();
-    /*    for(let i =0; i < files.length; i++){
-          form.append("files", files.item(i));
-        }*/
     form.append("file", file);
     form.append('details', JSON.stringify(postAdForm));
     return this.http.post<TextResponse>('/api/postAd', form);

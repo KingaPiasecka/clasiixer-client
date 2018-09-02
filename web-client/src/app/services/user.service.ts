@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {Observable} from "rxjs";
 import {TextResponse} from "../models/text-response.model";
+import {Username} from "../models/username";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ export class UserService {
 
   register(user: User): Observable<TextResponse> {
     return this.http.post<TextResponse>('api/register', user);
+  }
+
+  getUsername(): Observable<Username> {
+    return this.http.get<Username>('api/currentUser');
   }
 
 }

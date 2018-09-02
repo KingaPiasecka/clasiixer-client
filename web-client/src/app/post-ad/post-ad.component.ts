@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PostAdService} from "./post-ad.service";
 import {Router} from "@angular/router";
 import {AlertService} from "../services/alert.service";
+import {UserService} from "../services/user.service";
 
 
 @Component({
@@ -20,30 +21,43 @@ export class PostAdComponent implements OnInit {
   postAdForm: FormGroup;
   submitted = false;
   selectedFile: File;
+  user: string = null;
 
   constructor(private tokenStorage: TokenStorage,
               private authorizationService: AuthorizationService,
               private formBuilder: FormBuilder,
               private postAdService: PostAdService,
               private router: Router,
-              private alertService: AlertService) {
+              private alertService: AlertService,
+              private userService: UserService) {
   }
 
   ngOnInit() {
     this.postAdForm = this.formBuilder.group({
-      title: ['',],
-      category: ['',],
-      price: ['',],
-      condition: ['',],
-      description: ['',],
-      firstname: ['',],
-      lastname: ['',],
-      state: ['',],
-      city: ['',],
-      phone: ['',],
-      agree: ['',],
+      title: ['', [Validators.required, Validators.minLength(5)]],
+      category: ['', Validators.required],
+      price: ['', Validators.required],
+      condition: ['', Validators.required],
+      description: ['', Validators.required],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      phone: ['', Validators.required],
+      agree: ['', Validators.required],
       file: [null,]
     });
+
+    this.userService.getUsername().subscribe(
+      data => {
+        console.log(data);
+        this.user = data.username;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 
   get f() {
@@ -91,7 +105,7 @@ export class PostAdComponent implements OnInit {
       error => {
         this.alertService.error(error);
       }
-    )
+    );
   }
 
 }

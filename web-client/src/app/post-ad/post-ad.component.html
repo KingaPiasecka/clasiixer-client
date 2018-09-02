@@ -15,34 +15,32 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/category">
+            <a class="nav-link" routerLink="/category">
               Categories
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="faq.html">
+            <a class="nav-link" routerLink="/faq">
               FAQ
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">
+            <a class="nav-link" routerLink="/about">
               About Us
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">
+            <a class="nav-link" routerLink="/contact">
               Contact
             </a>
           </li>
         </ul>
         <ul class="sign-in">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+            <a class="nav-link dropdown-toggle" routerLink="#" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false"><i class="lni-user"></i> My Account</a>
             <nav class="dropdown-menu">
-              <a class="dropdown-item" routerLink="account-profile-setting.html" *ngIf="isLoggedIn()"><i
-                class="lni-home"></i> Account Home</a>
-              <a class="dropdown-item" routerLink="account-myads.html" *ngIf="isLoggedIn()"><i class="lni-wallet"></i>
+              <a class="dropdown-item" routerLink="/myAds" *ngIf="isLoggedIn()"><i class="lni-wallet"></i>
                 My Ads</a>
               <a class="dropdown-item" routerLink="/login" *ngIf="!isLoggedIn()"><i class="lni-lock"></i>Log In</a>
               <a class="dropdown-item" routerLink="/register" *ngIf="!isLoggedIn()"><i class="lni-user"></i>Sign Up</a>
@@ -71,7 +69,7 @@
         <div class="breadcrumb-wrapper">
           <h2 class="product-title">Post you Ads</h2>
           <ol class="breadcrumb">
-            <li><a href="#">Home /</a></li>
+            <li><a routerLink="/">Home /</a></li>
             <li class="current">Post you Ads</li>
           </ol>
         </div>
@@ -90,17 +88,17 @@
           <div class="sidebar-box">
             <div class="user">
               <figure>
-                <a href="#"><img src="assets/img/author/img1.jpg" alt=""></a>
+                <a routerLink="#"><img src="assets/img/author/img1.jpg" alt=""></a>
               </figure>
               <div class="usercontent">
                 <h3>User</h3>
-                <h4>Administrator</h4>
+                <h4>{{user}}</h4>
               </div>
             </div>
             <nav class="navdashboard">
               <ul>
                 <li>
-                  <a href="account-myads.html">
+                  <a routerLink="/myAds">
                     <i class="lni-layers"></i>
                     <span>My Ads</span>
                   </a>
@@ -112,13 +110,13 @@
                   </a>
                 </li>
                 <li>
-                  <a href="account-profile-setting.html">
+                  <a>
                     <i class="lni-cog"></i>
                     <span>Profile Settings</span>
                   </a>
                 </li>
                 <li>
-                  <a href="account-profile-setting.html">
+                  <a>
                     <i class="lni-star"></i>
                     <span>Privacy Settings</span>
                   </a>
@@ -255,7 +253,7 @@
                              formControlName="agree"
                              [ngClass]="{ 'is-invalid': submitted && f.agree.errors }">
                       <label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a
-                        href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
+                        routerLink="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
                     </div>
                   </div>
                   <button class="btn btn-common" type="submit" (click)="onSubmit()">Post Ad</button>
@@ -275,58 +273,24 @@
   <!-- Footer Area Start -->
   <section class="footer-Content">
     <div class="container">
-
-      <app-alert></app-alert>
-
       <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-mb-12">
           <div class="widget">
-            <h3 class="footer-logo"><img src="assets/img/logo.png" alt=""></h3>
+            <h5 class="footer-logo"><img src="assets/img/logo.png" alt=""></h5>
             <div class="textwidget">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-          <div class="widget">
-            <h3 class="block-title">Latest Ads</h3>
-            <ul class="media-content-list">
-              <li>
-                <div class="media-left">
-                  <img class="img-fluid" src="assets/img/art/img1.jpg" alt="">
-                  <div class="overlay">
-                    <span class="price">$ 79</span>
-                  </div>
-                </div>
-                <div class="media-body">
-                  <h4 class="post-title"><a href="ads-details.html">Brand New Macbook Pro</a></h4>
-                  <span class="date">12 Jan 2018</span>
-                </div>
-              </li>
-              <li>
-                <div class="media-left">
-                  <img class="img-fluid" src="assets/img/art/img2.jpg" alt="">
-                  <div class="overlay">
-                    <span class="price">$ 49</span>
-                  </div>
-                </div>
-                <div class="media-body">
-                  <h4 class="post-title"><a href="ads-details.html">Canon Photography Camera</a></h4>
-                  <span class="date">28 Mar 2018</span>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
           <div class="widget">
             <h3 class="block-title">Help & Support</h3>
             <ul class="menu">
-              <li><a href="#">Live Chat</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Purchase Protection</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Contact us</a></li>
+              <li><a>Live Chat</a></li>
+              <li><a>Privacy Policy</a></li>
+              <li><a>Purchase Protection</a></li>
+              <li><a>Support</a></li>
+              <li><a>Contact us</a></li>
             </ul>
           </div>
         </div>
@@ -334,18 +298,11 @@
           <div class="widget">
             <h3 class="block-title">Subscribe us</h3>
             <p class="text-sub">We have over 5 years of experience Our suppoer avalable to help you 24 hours a day, seven days week</p>
-           <!-- <form method="post" id="subscribe-form" name="subscribe-form" class="validate">
-              <div class="form-group is-empty">
-                <input type="email" value="" name="Email" class="form-control" id="EMAIL" placeholder="Email address" required="">
-                <button type="submit" name="subscribe" id="subscribes" class="btn btn-common sub-btn"><i class="lni-check-box"></i></button>
-                <div class="clearfix"></div>
-              </div>
-            </form>-->
             <ul class="footer-social">
-              <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-              <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-              <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
+              <li><a class="facebook"><i class="lni-facebook-filled"></i></a></li>
+              <li><a class="twitter"><i class="lni-twitter-filled"></i></a></li>
+              <li><a class="linkedin"><i class="lni-linkedin-fill"></i></a></li>
+              <li><a class="google-plus"><i class="lni-google-plus"></i></a></li>
             </ul>
           </div>
         </div>
@@ -360,23 +317,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="site-info float-left">
-            <p>All copyrights reserved &copy; 2018 - Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
-          </div>
-          <div class="float-right">
-            <ul class="bottom-card">
-              <li>
-                <a href="#"><img src="assets/img/footer/card1.jpg" alt="card"></a>
-              </li>
-              <li>
-                <a href="#"><img src="assets/img/footer/card2.jpg" alt="card"></a>
-              </li>
-              <li>
-                <a href="#"><img src="assets/img/footer/card3.jpg" alt="card"></a>
-              </li>
-              <li>
-                <a href="#"><img src="assets/img/footer/card4.jpg" alt="card"></a>
-              </li>
-            </ul>
+            <p>All copyrights reserved &copy; 2018 - ZTI</p>
           </div>
         </div>
       </div>
@@ -387,7 +328,8 @@
 </footer>
 <!-- Footer Section End -->
 
+
 <!-- Go to Top Link -->
-<a href="#" class="back-to-top">
+<a routerLink="#" class="back-to-top">
   <i class="lni-chevron-up"></i>
 </a>

@@ -11,8 +11,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AlertComponent } from './alert/alert.component';
 import {Interceptor} from "./interceptors/interceptor";
 import { PostAdComponent } from './post-ad/post-ad.component';
-import { AdDetailsComponent } from './ad-details/ad-details.component';
 import { CategoryComponent } from './category/category.component';
+import { FaqComponent } from './faq/faq.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { MyAdsComponent } from './my-ads/my-ads.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,11 @@ import { CategoryComponent } from './category/category.component';
     LoginComponent,
     AlertComponent,
     PostAdComponent,
-    AdDetailsComponent,
-    CategoryComponent
+    CategoryComponent,
+    FaqComponent,
+    AboutComponent,
+    ContactComponent,
+    MyAdsComponent
   ],
   imports: [
     BrowserModule,

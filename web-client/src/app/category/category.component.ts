@@ -4,6 +4,7 @@ import {AuthorizationService} from "../services/authorization.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {CategoryService} from "./category.service";
 import {Ad} from "../interfaces/ad";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-category',
@@ -19,7 +20,8 @@ export class CategoryComponent implements OnInit {
   constructor(private tokenStorage: TokenStorage,
               private authorizationService: AuthorizationService,
               private formBuilder: FormBuilder,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -31,7 +33,6 @@ export class CategoryComponent implements OnInit {
     this.categoryService.getAllAds().subscribe(
       data => {
         this.adList = data;
-        console.log(data)
         this.adCount = this.adList.length;
       },
       error => {
