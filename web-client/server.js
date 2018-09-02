@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 const request = require('request');
-app.use(app.router);
+
 
 app.use(function (req, res, next) {
   req.root = req.protocol + '://' + 'clasiixer-server.herokuapp.com/login' + '/';
