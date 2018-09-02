@@ -10,6 +10,7 @@ const request = require('request');
 
 app.use(function (req, res, next) {
   req.root = req.protocol + '://' + 'clasiixer-server.herokuapp.com/login' + '/';
+  console.log("reg: ", req);
   next();
 });
 
