@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api/login', function(req, res) {
+app.get('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
   processRewues(req);
   res.setHeader('Content-Type', 'application/json');
