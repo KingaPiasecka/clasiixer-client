@@ -17,6 +17,7 @@ app.get('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
   processRewues(req);
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
 });
 
@@ -24,6 +25,7 @@ app.post('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
   processRewues(req);
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
 });
 
