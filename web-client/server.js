@@ -20,22 +20,23 @@ app.use(function(req, res, next) {
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.url = 'clasiixer-server.herokuapp.com';
   next();
 });
 
 
-app.get('/api/*',cors(),  function(req, res) {
+/*app.get('/api/!*',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com'});
   res.send('Req OK');
   next();
 });
 
-app.post('/api/*',cors(),  function(req, res) {
+app.post('/api/!*',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com'});
   res.send('Req OK');
   console.log("post ok");
   next();
-});
+});*/
 
 module.exports = app;
 
