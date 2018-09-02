@@ -18,7 +18,7 @@ app.listen(process.env.PORT || 8080);
 const forceSSL = function() {
   return function (req, res, next) {
       return res.redirect(
-        ['', 'clasiixer-client.herokuapp.com', req.url].join('')
+        ['', 'clasiixer-client.herokuapp.com'].join('')
       );
 
   }
