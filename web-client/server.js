@@ -7,11 +7,11 @@ const router = express.Router();
 
 const request = require('request');
 
-
-app.use(function (req, res, next) {
-  req.root = req.protocol + '://' + 'clasiixer-server.herokuapp.com/login' + '/';
-  console.log("reg: ", req);
-  next();
+app.get('/api/login', function(req, res) {
+  req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
+  processRewues(req);
+  res.setHeader('Content-Type', 'application/json');
+  res.send('Req OK');
 });
 
 
