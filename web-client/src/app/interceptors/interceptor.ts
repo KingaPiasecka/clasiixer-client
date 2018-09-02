@@ -18,9 +18,9 @@ export class Interceptor implements HttpInterceptor {
     let authReq = req;
     if (this.tokenStorage.getToken() != null) {
       /*authReq = req.clone({headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token.getToken())});*/
-      console.log(req);
-      console.log("DDD");
-      authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}});
+      const httpRequest = new HttpRequest(<any>req.method,'clasiixer-server.herokuapp.com');
+      authReq = httpRequest.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}});
+
     }
     return next.handle(authReq);
   }
