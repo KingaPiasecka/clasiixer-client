@@ -8,18 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-	  "postinstall": "ng build --aot --prod"
+	  "postinstall": "ng build --aot --prod "
   },
   "private": true,
-  "architect": {
-    "serve": {
-      "builder": "@angular-devkit/build-angular:dev-server",
-      "options": {
-        "browserTarget": "web-client:build",
-        "proxyConfig": "src/proxy.conf.json"
-      }
-    }
-  },
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
