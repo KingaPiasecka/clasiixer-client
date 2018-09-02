@@ -12,11 +12,11 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   public getAllAds(): Observable<Ad[]> {
-    return this.http.get<Ad[]>('api/getAllAds');
+    return this.http.get<Ad[]>('https://clasiixer-server.herokuapp.com/getAllAds');
   }
 
   public getFilterAds(request: CategoryRequest): Observable<Ad[]> {
-    return this.http.post<Ad[]>('api/getFilterAds', request);
+    return this.http.post<Ad[]>('https://clasiixer-server.herokuapp.com/getFilterAds', request);
   }
 
 }
