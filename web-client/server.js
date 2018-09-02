@@ -10,6 +10,13 @@ const request = require('request');
 app.use(cors());
 cors({credentials: true, origin: true});
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -26,9 +33,11 @@ app.get('/api/login',cors(),  function(req, res) {
 app.post('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
   res.send('Req OK');
+  console.log("post ok");
   next();
 });
 
+module.exports = app;
 
 /*
 router.get('/api/!*', function(req, res){
