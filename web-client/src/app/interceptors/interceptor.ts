@@ -24,6 +24,8 @@ export class Interceptor implements HttpInterceptor {
       authReq = req.clone({ url: baseUrl});
 
     }
-    return next.handle(authReq);
+
+    let sendReq = authReq.clone({ url: 'dsdadasdasdsd'});
+    return next.handle(sendReq);
   }
 }
