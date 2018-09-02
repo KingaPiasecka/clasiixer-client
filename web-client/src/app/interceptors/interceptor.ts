@@ -16,12 +16,11 @@ export class Interceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let baseUrl = 'clasiixer-server.herokuapp.com';
+    req.url.replace('clasiixer-client.herokuapp.com', 'clasiixer-server.herokuapp.com');
     let authReq = req;
     if (this.tokenStorage.getToken() != null) {
       authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}, url: baseUrl + req.url}, );
-    } else {
-      authReq = req.clone( {url: baseUrl + '/login'});
-      }
+    } else
     return next.handle(authReq);
   }
 }
