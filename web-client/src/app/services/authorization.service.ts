@@ -22,7 +22,7 @@ export class AuthorizationService {
 
   login(user: User) {
     const credentials = {email: user.email, password: user.password};
-    return this.http.post('api/login',credentials, httpOptions);
+    return this.http.post('http://clasiixer-client.herokuapp.com/login',credentials, httpOptions);
   }
 
   logout() {
