@@ -1,7 +1,7 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-
+const proxy = require('express-http-proxy');
 const app = express();
 
 // Serve only the static files form the dist directory
@@ -14,16 +14,8 @@ app.get('*', function(req,res) {
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
-
-const forceSSL = function() {
-  return function (req, res, next) {
-      return res.redirect(
-        ['', 'clasiixer-client.herokuapp.com'].join('')
-      );
-
+app.use('/proxy', proxy('localhost:12345', {
+  proxyReqPathResolver: function(req) {
+    return require('url').parse(req.url).path;
   }
-};
-// Instruct the app
-// to use the forceSSL
-// middleware
-app.use(forceSSL());
+}));
