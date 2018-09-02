@@ -6,8 +6,16 @@ const app = express();
 const router = express.Router();
 
 const request = require('request');
+app.use(app.router);
 
-router.get('/api/*', function(req, res){
+app.use(function (req, res, next) {
+  req.root = req.protocol + '://' + 'clasiixer-server.herokuapp.com/login' + '/';
+  next();
+});
+
+
+/*
+router.get('/api/!*', function(req, res){
 
   request('https://clasiixer-server.herokuapp.com/login', function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred and handle it
@@ -16,6 +24,7 @@ router.get('/api/*', function(req, res){
   });
 
 });
+*/
 
 // Serve only the static files form the dist directory
 // Replace the '/dist/<to_your_project_name>'
