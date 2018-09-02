@@ -6,13 +6,14 @@ const app = express();
 const router = express.Router();
 const cors = require('cors');
 const request = require('request');
-cors({credentials: true, origin: true});
+
 app.use(cors());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+cors({credentials: true, origin: true});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 app.get('/api/login',cors(),  function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
