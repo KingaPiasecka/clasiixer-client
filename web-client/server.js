@@ -7,9 +7,9 @@ const router = express.Router();
 
 const request = require('request');
 
-router.get('/api', function(req, res){
+router.get('/api/*', function(req, res){
 
-  request('https://clasiixer-server.herokuapp.com', function (error, response, body) {
+  request('https://clasiixer-server.herokuapp.com/login', function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred and handle it
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     res.send(body)
