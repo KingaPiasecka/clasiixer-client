@@ -19,6 +19,7 @@ export class Interceptor implements HttpInterceptor {
     if (this.tokenStorage.getToken() != null) {
       /*authReq = req.clone({headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token.getToken())});*/
       console.log(req);
+      console.log("DDD");
       authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}});
     }
     return next.handle(authReq);
