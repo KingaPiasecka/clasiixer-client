@@ -20,6 +20,13 @@ app.get('/api/login',cors(),  function(req, res) {
   res.send('Req OK');
 });
 
+app.post('/api/login',cors(),  function(req, res) {
+  req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
+  processRewues(req);
+  res.setHeader('Content-Type', 'application/json');
+  res.send('Req OK');
+});
+
 
 /*
 router.get('/api/!*', function(req, res){
