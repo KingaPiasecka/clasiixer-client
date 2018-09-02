@@ -13,11 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   register(user: User): Observable<TextResponse> {
-    return this.http.post<TextResponse>('clasiixer-server.herokuapp.com/register', user);
+    return this.http.post<TextResponse>('/register', user);
   }
 
   getUsername(): Observable<Username> {
-    return this.http.get<Username>('clasiixer-server.herokuapp.com/currentUser');
+    return this.http.get<Username>('/currentUser');
   }
 
 }
