@@ -15,9 +15,15 @@ app.get('*', function(req,res) {
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 
-const getPath = req => require('url').parse(req.url).path;
+const forceSSL = function() {
+  return function (req, res, next) {
+      return res.redirect(
+        ['', 'clasiixer-client.herokuapp.com', req.url].join('')
+      );
 
-const createProxy = ({hostname = 'clasiixer-client.herokuapp.com', path = ''}) =>
-  +  proxy(`${hostname}`, { proxyReqPathResolver: req => `${path}${getPath(req)}` });
-
-/*app.use('/api', createProxy({port: 3000, path: '/api'}));*/
+  }
+};
+// Instruct the app
+// to use the forceSSL
+// middleware
+app.use(forceSSL());
