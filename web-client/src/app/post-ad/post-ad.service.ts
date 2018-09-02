@@ -15,7 +15,7 @@ export class PostAdService {
     const form: FormData = new FormData();
     form.append("file", file);
     form.append('details', JSON.stringify(postAdForm));
-    return this.http.post<TextResponse>('clasiixer-server.herokuapp.com/postAd', form);
+    return this.http.post<TextResponse>('api/postAd', form);
   }
 
 }

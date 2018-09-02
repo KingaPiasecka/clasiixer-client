@@ -40,12 +40,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    console.log("onSubimt");
     this.authorizationService.login(this.loginForm.value)
       .pipe(first())
       .subscribe(
         data => {
-
           // @ts-ignore
           this.tokenStorage.saveToken(data.token);
           this.router.navigate(['/']);

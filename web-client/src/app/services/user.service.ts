@@ -13,11 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   register(user: User): Observable<TextResponse> {
-    return this.http.post<TextResponse>('/register', user);
+    return this.http.post<TextResponse>('api/register', user);
   }
 
   getUsername(): Observable<Username> {
-    return this.http.get<Username>('/currentUser');
+    return this.http.get<Username>('api/currentUser');
   }
 
 }

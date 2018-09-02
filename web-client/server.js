@@ -14,8 +14,9 @@ app.get('*', function(req,res) {
 });
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
-app.use('/proxy', proxy('localhost:12345', {
-  proxyReqPathResolver: function(req) {
-    return require('url').parse(req.url).path;
-  }
-}));
+
+const globalTunnel = require('global-tunnel');
+
+globalTunnel.initialize({
+  host: 'https://clasiixer-server.herokuapp.com'
+});

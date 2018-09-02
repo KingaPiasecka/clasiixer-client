@@ -12,11 +12,11 @@ export class MyAdsService {
   constructor(private http: HttpClient) { }
 
   public getMyAds(): Observable<Ad[]> {
-    return this.http.get<Ad[]>('clasiixer-server.herokuapp.com/myAds');
+    return this.http.get<Ad[]>('api/myAds');
   }
 
   public deleteAd(id: number): Observable<TextResponse> {
-    return this.http.delete<TextResponse>('clasiixer-server.herokuapp.com/deleteAd/' + id);
+    return this.http.delete<TextResponse>('api/deleteAd/' + id);
   }
 
 }

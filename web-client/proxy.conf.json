@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "clasiixer-server.herokuapp.com",
+    "target": "https://clasiixer-server.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,

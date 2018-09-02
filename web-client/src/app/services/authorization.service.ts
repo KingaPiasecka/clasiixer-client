@@ -21,8 +21,9 @@ export class AuthorizationService {
               private tokenStorage: TokenStorage) { }
 
   login(user: User) {
+    console.log('login');
     const credentials = {email: user.email, password: user.password};
-    return this.http.post('/login',credentials, httpOptions);
+    return this.http.post('api/login',credentials, httpOptions);
   }
 
   logout() {

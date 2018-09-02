@@ -810,7 +810,7 @@ a.back-to-top:hover, a.back-to-top:focus {
 3. Hero Area
 ========================================================================== */
 #hero-area {
-  background: url(../img/hero-area.jpg) no-repeat;
+  background: url(https://images.unsplash.com/photo-1493274409115-3f5143dd3d9a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=42d01d1722d71f2bebb805c5ad0131a3&auto=format&fit=crop&w=1411&q=80) no-repeat;
   background-size: cover;
   color: #fff;
   overflow: hidden;
@@ -4814,7 +4814,7 @@ footer .menu li a:hover {
 }
 
 .counter-section {
-  background: url(../img/background/counter-back1.jpg);
+  background: url(https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4f74cfb527b697dc1c2f173034ae9be9&auto=format&fit=crop&w=1350&q=80);
   overflow: hidden;
   position: relative;
 }
