@@ -20,4 +20,4 @@ const getPath = req => require('url').parse(req.url).path;
 const createProxy = ({hostname = 'clasiixer-client.herokuapp.com', path = ''}) =>
   +  proxy(`${hostname}`, { proxyReqPathResolver: req => `${path}${getPath(req)}` });
 
-app.use('/api', createProxy({port: 3000, path: '/api'}));
+/*app.use('/api', createProxy({port: 3000, path: '/api'}));*/
