@@ -21,6 +21,7 @@ app.get('/api/login',cors(),  function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
+  next();
 });
 
 app.post('/api/login',cors(),  function(req, res) {
@@ -29,6 +30,7 @@ app.post('/api/login',cors(),  function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.send('Req OK');
+  next();
 });
 
 
