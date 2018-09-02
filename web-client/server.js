@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const proxy = require('express-http-proxy');
 const app = express();
-const router = require('router');
+const router = express.Router();
 
 const request = require('request');
 
