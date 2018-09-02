@@ -20,7 +20,7 @@ export class Interceptor implements HttpInterceptor {
     if (this.tokenStorage.getToken() != null) {
       authReq = req.clone({setHeaders: {Authorization: 'Bearer ' + this.tokenStorage.getToken()}, url: baseUrl + req.url}, );
     } else {
-      authReq = req.clone( {url: baseUrl + req.url});
+      authReq = req.clone( {url: baseUrl + '/login'});
       }
     return next.handle(authReq);
   }
