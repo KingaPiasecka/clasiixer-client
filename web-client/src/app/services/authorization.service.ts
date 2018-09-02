@@ -7,7 +7,8 @@ import {TokenStorage} from "../shared/token-storage";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer'
+    'Authorization': 'Bearer',
+    "Access-Control-Allow-Methods": '*'
   })
 };
 
