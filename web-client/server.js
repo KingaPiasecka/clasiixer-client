@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 const cors = require('cors');
 const request = require('request');
-app.use(cors())
+app.use(cors());
 
 app.get('/api/login', function(req, res) {
   req.get({url: 'clasiixer-server.herokuapp.com/login', headers: req.headers});
