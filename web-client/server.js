@@ -15,5 +15,9 @@ app.get('*', function(req,res) {
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 
-var proxy = require('express-http-proxy');
-app.use('/proxy', proxy('clasiixer-server.herokuapp.com'));
+const getPath = req => require('url').parse(req.url).path;
+
+const createProxy = ({hostname = 'clasiixer-client.herokuapp.com', path = ''}) =>
+  +  proxy(`${hostname}`, { proxyReqPathResolver: req => `${path}${getPath(req)}` });
+
+app.use('/api', createProxy({port: 3000, path: '/api'}));
